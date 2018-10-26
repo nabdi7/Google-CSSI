@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+     <title>Host Connect</title>
+
+     <!--CSS-->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+     <link href="css/hostconnect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+    {% include 'templates/partials/navbar.html' %}
+    <div class="container">
+
+      <span class="container2">
+         <h3>Host Connect</h3>
+
+         <form action="/hostconnect" method="post">
+
+           <label for="about">Title</label>
+           <input type="text" id="" name="title" placeholder="" required /><br>
+          <br><br>
+
+           {% include 'templates/partials/who.html' %}
+
+
+           <label for="date">Date</label>
+           <input type="date" id="myDate" value="currentDate" name="date" required />
+
+           <script>
+           function myFunction() {
+               var x = document.getElementById("myDate").value;
+               document.getElementById("demo").innerHTML = x;
+            }
+           </script><br></br>
+           <label for="appt-time">Start Time:</label>
+           <input type="time" id="appt-time" name="time-st" required />
+
+           <label for="appt-time">End Time:</label>
+           <input type="time" id="appt-time" name="time-end" required />
+        </span>
+
+      </div class="container">
+
+      <input type="hidden" name="json_loc" value="" required>
+
+         {% include 'templates/partials/maps.html'%}
+
+       <div class="row">
+         <button id= "submit_hc" class="btn waves-effect right" type="submit" name="submit">Submit<i class="material-icons right">send</i></button>
+       </div>
+       </form>
+      <!--  Scripts-->
+        <script>
+        var connect_location;
+
+        function initMap() {
+          let map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 47.60621, lng: -122.332071},
+            zoom: 13
+          });
+
+          let input = document.getElementById('pac-input');
+
+          let autocomplete = new google.maps.places.Autocomplete(input);
+          autocomplete.bindTo('bounds', map);
+
+          map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+          let infowindow = new google.maps.InfoWindow();
+          let infowindowContent = document.getElementById('infowindow-content');
+          infowindow.setContent(infowindowContent);
+          let marker = new google.maps.Marker({
+            map: map
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+
+          autocomplete.addListener('place_changed', function() {
+            infowindow.close();
+            let place = autocomplete.getPlace();
+            if (!place.geometry) {
+              return;
+            }
+
+            if (place.geometry.viewport) {
+              map.fitBounds(place.geometry.viewport);
+            } else {
+              map.setCenter(place.geometry.location);
+              map.setZoom(17);
+            }
+
+            // Set the position of the marker using the place ID and location.
+            marker.setPlace({
+              placeId: place.place_id,
+              location: place.geometry.location
+            });
+            marker.setVisible(true);
+
+            infowindowContent.children['place-name'].textContent = place.name;
+            infowindowContent.children['place-id'].textContent = place.place_id;
+            infowindowContent.children['place-address'].textContent =
+                place.formatted_address;
+
+            connect_location = place.formatted_address;
+
+            infowindow.open(map, marker);
+          });
+        }
+        let submit_button = document.querySelector('#submit_hc');
+        submit_button.addEventListener("click", function(){
+
+          const locObj = {
+            "location": connect_location,
+            "course": document.querySelector('.select-selected').innerText
+          };
+          document.querySelector('[name="json_loc"]').value = JSON.stringify(locObj);
+
+        });
+      </script>
+
+      <script>
+        var x, i, j, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        for (i = 0; i < x.length; i++) {
+          selElmnt = x[i].getElementsByTagName("select")[0];
+          /*for each element, create a new DIV that will act as the selected item:*/
+          a = document.createElement("DIV");
+          a.setAttribute("class", "select-selected");
+          a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+          x[i].appendChild(a);
+          /*for each element, create a new DIV that will contain the option list:*/
+          b = document.createElement("DIV");
+          b.setAttribute("class", "select-items select-hide");
+          for (j = 0; j < selElmnt.length; j++) {
+            /*for each option in the original select element,
+            create a new DIV that will act as an option item:*/
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                var y, i, k, s, h;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < s.length; i++) {
+                  if (s.options[i].innerHTML == this.innerHTML) {
+                    s.selectedIndex = i;
+                    h.innerHTML = this.innerHTML;
+                    y = this.parentNode.getElementsByClassName("same-as-selected");
+                    for (k = 0; k < y.length; k++) {
+                      y[k].removeAttribute("class");
+                    }
+                    this.setAttribute("class", "same-as-selected");
+                    break;
+                  }
+                }
+                h.click();
+            });
+            b.appendChild(c);
+          }
+          x[i].appendChild(b);
+          a.addEventListener("click", function(e) {
+              /*when the select box is clicked, close any other select boxes,
+              and open/close the current select box:*/
+              e.stopPropagation();
+              closeAllSelect(this);
+              this.nextSibling.classList.toggle("select-hide");
+              this.classList.toggle("select-arrow-active");
+            });
+        }
+        function closeAllSelect(elmnt) {
+          /*a function that will close all select boxes in the document,
+          except the current select box:*/
+          var x, y, i, arrNo = [];
+          x = document.getElementsByClassName("select-items");
+          y = document.getElementsByClassName("select-selected");
+          for (i = 0; i < y.length; i++) {
+            if (elmnt == y[i]) {
+              arrNo.push(i)
+            } else {
+              y[i].classList.remove("select-arrow-active");
+            }
+          }
+          for (i = 0; i < x.length; i++) {
+            if (arrNo.indexOf(i)) {
+              x[i].classList.add("select-hide");
+            }
+          }
+        }
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+      </script>
+
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXFuSIl92TszVr52toDuwp9iZ-OK49oow&libraries=places&callback=initMap"
+        async defer></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/hostconnect.js">
+      $(".button-collapse").sideNav();
+      </script>
+    </body>
+  {% include 'templates/partials/footer.html'%}
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    /*the container must be positioned relative:*/
+    .custom-select {
+      position: relative;
+      font-family: Arial;
+    }
+    .custom-select select {
+      display: none; /*hide original SELECT element:*/
+    }
+    .select-selected {
+      background-color: #4CAF50;
+    }
+    /*style the arrow inside the select element:*/
+    .select-selected:after {
+      position: absolute;
+      content: "";
+      top: 14px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-color: #fff transparent transparent transparent;
+    }
+    /*point the arrow upwards when the select box is open (active):*/
+    .select-selected.select-arrow-active:after {
+      border-color: transparent transparent #fff transparent;
+      top: 7px;
+    }
+    /*style the items (options), including the selected item:*/
+    .select-items div,.select-selected {
+      color: #ffffff;
+      padding: 8px 16px;
+      border: 1px solid transparent;
+      border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+      cursor: pointer;
+      user-select: none;
+    }
+    /*style items (options):*/
+    .select-items {
+      position: ;
+      background-color: #4CAF50;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 99;
+    }
+    /*hide the items when the select box is closed:*/
+    .select-hide {
+      display: none;
+    }
+    .select-items div:hover, .same-as-selected {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    </style>
+  </head>
+  <body>
+    <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
+
+
+    <div class="custom-select" style="width:200px; height:200px; overflow:auto;">
+      <select>
+        <option value="0">Select Course:</option>
+        <option value="1">Anesthesiology</option>
+        <option value="2">American Studies</option>
+        <option value="3">Anthropology</option>
+        <option value="4">Arts</option>
+        <option value="5">Architecture</option>
+        <option value="6">Atmospheric Sciences</option>
+        <option value="7">Astronomy</option>
+        <option value="8">Biochemistry</option>
+        <option value="9">Bioethics and Humanities</option>
+        <option value="10">Chemistry</option>
+        <option value="11">Chemical Engineering</option>
+        <option value="12">Climate Science</option>
+        <option value="13">Communication</option>
+        <option value="14">Computer Science</option>
+        <option value="15">Cyber Security</option>
+        <option value="16">Dance</option>
+        <option value="17">Digital Arts</option>
+        <option value="18">Drama</option>
+        <option value="19">Earth and Space Sciences</option>
+        <option value="20">Economics</option>
+        <option value="21">Electrical Engineering</option>
+        <option value="22">Epidemiology</option>
+        <option value="23">Ethics</option>
+        <option value="24">Gender, Women, and Sexuality Studies</option>
+        <option value="25">Geography</option>
+        <option value="26">Global Health</option>
+        <option value="27">History</option>
+        <option value="28">Human Centered Design and Engineering</option>
+        <option value="29">Honors</option>
+        <option value="30">International Studies</option>
+        <option value="31">Immunology</option>
+        <option value="32">IT</option>
+        <option value="33">Laboratory Medicine</option>
+        <option value="34">Law</option>
+        <option value="35">Mathematics</option>
+        <option value="36">Mechanical Engineering</option>
+        <option value="37">Microbiology</option>
+        <option value="38">Military Science</option>
+        <option value="39">Moledulcar Engineering</option>
+        <option value="40">Neurobiology</option>
+        <option value="41">Oceanography</option>
+        <option value="42">Pathobiology</option>
+        <option value="43">Pathology</option>
+        <option value="44">Pediatrics</option>
+        <option value="45">Paleobiology</option>
+        <option value="46">Pharmacology</option>
+        <option value="47">Philosophy</option>
+        <option value="48">Physics</option>
+        <option value="49">Political Science</option>
+        <option value="50">Psychology</option>
+        <option value="51">Public Health Genetics</option>
+        <option value="52">Radiation Oncology</option>
+        <option value="53">Urology</option>
+
+      </select>
+    </div>
+
+
+  </body>
+</html>

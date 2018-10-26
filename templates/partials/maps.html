@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place ID Finder</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+
+      #map {
+        height: 55%;
+        width: 70%;
+        margin-left: 15%
+      }
+      html, body {
+        height: 95%;
+        margin: 0;
+        padding: 0;
+      }
+      .controls {
+        background-color: #fff;
+        border-radius: 2px;
+        border: 1px solid transparent;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        height: 29px;
+        margin-left: 17px;
+        margin-top: 10px;
+        outline: none;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      .controls:focus {
+        border-color: #4d90fe;
+      }
+      .title {
+        font-weight: bold;
+      }
+      #infowindow-content {
+        display: none;
+      }
+      #map #infowindow-content {
+        display: inline;
+      }
+
+    </style>
+  </head>
+  <body>
+    <input id="pac-input" name = "location" class="controls" type="text"
+        placeholder="Enter a location">
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <span id="place-name"  class="title"></span><br>
+      Place ID <span id="place-id"></span><br>
+      <span id="place-address"></span>
+    </div>
+
+    <!-- <script>
+      var connect_location;
+
+      function initMap() {
+        let map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 47.60621, lng: -122.332071},
+          zoom: 13
+        });
+
+        let input = document.getElementById('pac-input');
+
+        let autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        // let xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function() {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //        // Typical action to be performed when the document is ready:
+        //        xhttp.responseText = autocomplete;
+        //     }
+        // };
+        // xhttp.open("POST",'/hostconnect', true);
+        // xhttp.send();
+
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        let infowindow = new google.maps.InfoWindow();
+        let infowindowContent = document.getElementById('infowindow-content');
+        infowindow.setContent(infowindowContent);
+        let marker = new google.maps.Marker({
+          map: map
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          let place = autocomplete.getPlace();
+          if (!place.geometry) {
+            return;
+          }
+
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+          }
+
+          // Set the position of the marker using the place ID and location.
+          marker.setPlace({
+            placeId: place.place_id,
+            location: place.geometry.location
+          });
+          marker.setVisible(true);
+
+          infowindowContent.children['place-name'].textContent = place.name;
+          infowindowContent.children['place-id'].textContent = place.place_id;
+          infowindowContent.children['place-address'].textContent =
+              place.formatted_address;
+
+          connect_location = place.geometry.location;
+
+          infowindow.open(map, marker);
+        });
+      }
+
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /*make an HTTP request using the attribute value as the file name:*/
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /*remove the attribute, and call this function once more:*/
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            }
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /*exit the function:*/
+            return;
+          }
+        }
+      }
+
+
+      let submit_button = Document.
+      // function addEventListener('')
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST','/hostconnect', true);
+      xhr.setRequestHeader("Content-Type","application/json;charset=UTF-8");
+      const locObj = {
+        "location": "connect_location",
+      }
+      xhr.onload = function() {
+        console.log("Sent!")
+      }
+      console.log(JSON.stringify(locObj))
+      xhr.send(JSON.stringify(locObj));
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXFuSIl92TszVr52toDuwp9iZ-OK49oow&libraries=places&callback=initMap"
+        async defer></script> -->
+  </body>
+</html>

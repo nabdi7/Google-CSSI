@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+     <title>College Connect Home</title>
+
+     <!--CSS-->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+     <link href="css/dashboard.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+
+    {% include 'templates/partials/navbar.html'%}
+
+    <!--Post Status Bar-->
+      <div class="cardpanel blue-grey lighten-5" style="padding-top: 15px">
+        <div class="row">
+          <div id="color" class="col s6 push-s3"> <!--color-->
+            <div class="card-panel">
+              <div class="row">
+                <form class="col s12" method="post" action="/dashboard">
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="status" type="text" class="validate" name="status">
+                      <label class="active" for="status">Write a Post <i class="material-icons">edit</i></label>
+                      <button id="color" class="btn waves-effect right" type="submit" name="post">Post<i class="material-icons right">edit</i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- My Feed-->
+    {% for post in post %}
+      <div class="cardpanel blue-grey lighten-5">
+        <div class="row">
+          <div id= "posts" class="col s6 push-s3"> <!--color-->
+            <div class="card-panel">
+              <div class="row">
+                {% if post.post %}
+                  {{ post.post }}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <!--  Scripts-->
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+      <script type="text/javascript" src="js/dashboard.js">
+      $(".button-collapse").sideNav();
+      </script>
+    </body>
+
+    {% include 'templates/partials/footer.html'%}
+</html>

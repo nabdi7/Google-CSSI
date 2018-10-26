@@ -1,0 +1,32 @@
+body{
+  height:100%;
+  width:100%;
+}
+
+
+.big-header{
+  font-size: 60px;
+}
+
+.welcome-bg{
+  background-image: url("https://i1.wp.com/photos.tmahlmann.com/photos/i-sTbHMvK/1/L/i-sTbHMvK-L.jpg?resize=762%2C600");
+  min-width: 100%;
+  max-height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  padding-top: 200px;
+  padding-bottom: 202px;
+  min-height: 500px;
+}
+
+.welcome-bg2{
+  background-color: white;
+  opacity: .85;
+  padding: 20px;
+  margin-top: 10%;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+}

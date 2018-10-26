@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+     <title>Join Connect</title>
+
+     <!--CSS-->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+     <link href="css/hostconnect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+    {% include 'templates/partials/navbar.html' %}
+    <div class="container">
+
+      <span class="container2">
+         <h3>Join a Connect</h3>
+         <form action="" method="post">
+
+           <label for="about">Title</label>
+           <input type="text" id="" name="" placeholder=""></input><br>
+
+           <!-- Dropdown Trigger -->
+             <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Select Course</a>
+             <!-- Dropdown Structure -->
+             <ul id='dropdown1' class='dropdown-content'>
+               <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+               <li><a href="#!">Aeronautics and Astronautics</a></li>
+               <li><a href="#!">Anesthesiology</a></li>
+               <li><a href="#!">American Studies </a></li>
+               <li><a href="#!">Anthropology</a></li>
+               <li><a href="#!">Arts</a></li>
+               <li><a href="#!">Architecture</a></li>
+               <li><a href="#!">Atmospheric Sciences</a></li>
+               <li><a href="#!">Astronomy</a></li>
+               <li><a href="#!">Biochemistry</a></li>
+               <li><a href="#!">Bioethics and Humanities</a></li>
+               <li><a href="#!">Chemistry</a></li>
+               <li><a href="#!">Chemical Engineering</a></li>
+               <li><a href="#!">Civil and Environmental Engineering</a></li>
+               <li><a href="#!">Climate Science</a></li>
+               <li><a href="#!">Communication</a></li>
+               <li><a href="#!">Computer Science</a></li>
+               <li><a href="#!">Cyber Security</a></li>
+               <li><a href="#!">Dance</a></li>
+               <li><a href="#!">Digital Arts </a></li>
+               <li><a href="#!">Drama</a></li>
+               <li><a href="#!">Earth and Space Sciences</a></li>
+               <li><a href="#!">Economics</a></li>
+               <li><a href="#!">Electrical Engineering</a></li>
+               <li><a href="#!">Epidemiology</a></li>
+               <li><a href="#!">Ethics</a></li>
+               <li><a href="#!">Gender, Women, and Sexuality Studies</a></li>
+               <li><a href="#!">Geography</a></li>
+               <li><a href="#!">Global Health</a></li>
+               <li><a href="#!">History</a></li>
+               <li><a href="#!">Human Rights</a></li>
+               <li><a href="#!">Human Centered Design and Engineering .</a></li>
+               <li><a href="#!">Honors</a></li>
+               <li><a href="#!">International Studies</a></li>
+               <li><a href="#!">Immunology</a></li>
+               <li><a href="#!">IT</a></li>
+               <li><a href="#!">Laboratory Medicine</a></li>
+               <li><a href="#!">Law</a></li>
+               <li><a href="#!">Mathematics</a></li>
+               <li><a href="#!">Mechanical Engineering</a></li>
+               <li><a href="#!">Microbiology</a></li>
+               <li><a href="#!">Military Science</a></li>
+               <li><a href="#!">Moledulcar Engineering</a></li>
+               <li><a href="#!">Neurobiology</a></li>
+               <li><a href="#!">Oceanography</a></li>
+               <li><a href="#!">Pathobiology</a></li>
+               <li><a href="#!">Pathology</a></li>
+               <li><a href="#!">Pediatrics</a></li>
+               <li><a href="#!">Paleobiology</a></li>
+               <li><a href="#!">Pharmacology</a></li>
+               <li><a href="#!">Philosophy</a></li>
+               <li><a href="#!">Physics</a></li>
+               <li><a href="#!">Political Science</a></li>
+               <li><a href="#!">Psychology</a></li>
+               <li><a href="#!">Public Health Genetics</a></li>
+               <li><a href="#!">Radiation Oncology</a></li>
+               <li><a href="#!">Urology</a></li>
+               <li class="divider" tabindex="-1"></li>
+             </ul>
+
+           <!-- {% include 'templates/partials/drop.html'%} -->
+         </br>
+
+           <label for="Major">Date</label>
+           <input type="date" id="myDate" value="currentDate">
+
+           <script>
+           function myFunction() {
+               var x = document.getElementById("myDate").value;
+               document.getElementById("demo").innerHTML = x;
+             }
+           </script><br>
+         </br>
+         <label for="appt-time">Start Time:</label>
+         <input type="time" id="appt-time" name="appt-time" required />
+
+         <label for="appt-time">End Time:</label>
+         <input type="time" id="appt-time" name="appt-time" required />
+        </form>
+         </span>
+
+       </div class="container">
+       {% include 'templates/partials/maps.html'%}
+       <div class="row">
+         <button class="btn waves-effect right" type="submit" name="signup">Submit<i class="material-icons right">send</i></button>
+       </div>
+
+    <!--  Scripts-->
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/hostconnect.js">
+      $(".button-collapse").sideNav();
+      </script>
+    </body>
+  {% include 'templates/partials/footer.html'%}
+</html>

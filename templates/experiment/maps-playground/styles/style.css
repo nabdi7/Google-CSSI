@@ -1,0 +1,122 @@
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+
+body {
+  background-image: url("../images/world.jpg");
+  background-size: 1400px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+#general_container {
+  width: 1400px;
+  height: 1000px;
+  margin: auto;
+}
+
+#form_container {
+  margin: auto;
+  width: 80%;
+}
+
+#coord_form {
+  float: left;
+  clear: left;
+}
+
+#address_form {
+  float: right;
+  clear: right;
+}
+
+.user_form {
+    background-color: rgba(255,255,255,.3);
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 10px;
+    width: 40%;
+    height: 100%;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+label, input
+{
+  font-family: "Poiret One";
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#map-canvas {
+  width: 99%;
+  height: 99%;
+  margin: auto;
+  padding: 0;
+}
+
+#map-container {
+  position: static;
+  width: 80%;
+  height: 600px;
+  padding: 30px;
+  float: none;
+  margin: auto;
+  background-color: rgba(255,255,255,.3);
+  clear: both;
+}
+
+#error {
+  display: none;
+  color: red;
+}
+
+.submit_btn{
+  border : solid 1px #fff700;
+	border-radius : 6px;
+  float: right;
+  clear: both;
+	moz-border-radius : 6px;
+	font-size : 20px;
+	color : #ffffff;
+	padding : 5px 17px;
+  margin: 10px auto;
+	background : #ffd500;
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffd500), color-stop(100%,#ff8c00));
+	background : -moz-linear-gradient(top, #ffd500 0%, #ff8c00 100%);
+	background : -webkit-linear-gradient(top, #ffd500 0%, #ff8c00 100%);
+	background : -o-linear-gradient(top, #ffd500 0%, #ff8c00 100%);
+	background : -ms-linear-gradient(top, #ffd500 0%, #ff8c00 100%);
+	background : linear-gradient(top, #ffd500 0%, #ff8c00 100%);
+	filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd500', endColorstr='#ff8c00',GradientType=0 );
+}
+
+#address,
+.coordinate_input input{
+  width: 70%;
+  float: right;
+  vertical-align: middle;
+  height: 20px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.coordinate_input label {
+  float:left;
+  clear:left;
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+}
+
+.center_text {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    text-align: center;
+    font-family: "Poiret One";
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+}

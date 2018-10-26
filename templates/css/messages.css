@@ -1,0 +1,100 @@
+#msg-right {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+#msg-left {
+  border: 2px solid #dedede;
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#box{
+  border: 2px solid #dedede;
+  background-color: #ddd;
+  border-radius: 5px;
+  border-bottom: 5%;
+}
+
+#newmsg{
+  border: 2px solid #dedede;
+  border-color: #ddd;
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-bottom: 5%;
+  border-top: 5%;
+  border-bottom: 5%
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+.time-left {
+    float: left;
+    color: #999;
+}
+
+.hidden{
+  display: none !important;
+}
+
+.cardpanel{
+  margin-left: 50px
+  margin-right: 50px
+}
+
+#color{
+  background-color: #4dd0e1;
+}
+
+#posts{
+  background-color: #b2ebf2;
+}
+
+.btn:hover {
+  background-color: #01579b;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.nav-wrapper{
+  background-color: #26c6da;
+}
+
+.page-footer{
+  background-color: #26c6da;
+}

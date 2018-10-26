@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--CSS-->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/messages.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    {% include 'templates/partials/navbar.html' %}
+    <div class="container">
+      <h2>Chat Messages <i class="medium material-icons">message</i></h2>
+      <div id="msg-left" class="z-depth-4 container">
+        <img src="https://cdn4.vectorstock.com/i/1000x1000/35/98/person-icon-female-user-profile-avatar-vector-18833598.jpg" alt="Avatar" style="width:100%;">
+        <p>Hello. How are you today?</p>
+        <span class="time-right">11:00</span>
+      </div>
+
+      <div id="msg-right" class="z-depth-4 container darker">
+        <img src="https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png" alt="Avatar" style="width:100%;">
+        <p>Hey! I'm fine. Thanks for asking!</p>
+        <span class="time-right">11:01</span>
+      </div>
+
+      <div id="msg-left" class="z-depth-4 container">
+        <img src="https://cdn4.vectorstock.com/i/1000x1000/35/98/person-icon-female-user-profile-avatar-vector-18833598.jpg" alt="Avatar" style="width:100%;">
+        <p>Sweet! So, what do you wanna do today?</p>
+        <span class="time-right">11:02</span>
+      </div>
+
+      <div id="msg-right" class="z-depth-4 container darker">
+        <img src="https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png" alt="Avatar" style="width:100%;">
+        <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
+        <span class="time-right">11:05</span>
+      </div>
+      <div style="padding-bottom:10%">
+        {% for m in message %}
+          <div id="msg-left" class="z-depth-4 container">
+            <img src="https://cdn4.vectorstock.com/i/1000x1000/35/98/person-icon-female-user-profile-avatar-vector-18833598.jpg" alt="Avatar" style="width:100%;">
+            {% if m.message %}
+              {{ m.message }}
+              <span class="time-right">
+                <script>
+                  var timeOffsetInHours = -(new Date()).getTimezoneOffset()/60;
+                  var date = new Date('{{m.date}}');
+                  date.setHours(date.getHours() + timeOffsetInHours);
+                  document.write(date.toLocaleString())
+                </script>
+              </span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div style="padding-bottom: 10%">
+        <div id="box" class="z-depth-4 container center">
+          <form id="newmsg" class="sendmsg" action="/messages" method="post">
+            <input type="text" name="message">
+            <button id="color" class="btn waves-effect" type="submit" name="Send" value="Send">Send<i></i>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!--  Scripts-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/messages.js" type="text/javascript"></script>
+  </body>
+  {% include 'templates/partials/footer.html' %}
+</html>

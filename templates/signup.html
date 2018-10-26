@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+     <title>College Connect</title>
+
+     <!--CSS-->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"> -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+     <link href="css/signup.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <body>
+    <div class="container blue-grey lighten-5">
+      <div class="card-panel">
+        <h2>Create a New Account</h2>
+        <div class="row">
+          <form class="col s12" action="/signup" method="post">
+        <!--First/Last Name-->
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="first_name" type="text" class="validate" name="first_name" required>
+                <label class="active" for="first_name">First Name </label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate"name="last_name" required>
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+        <!--College-->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">school</i>
+                <input id="college" type="text" class="validate" name="college" required>
+                <label for="college">College/University</label>
+              </div>
+            </div>
+        <!--Courses-->
+            <div class="chips chips-placeholder">
+              <i class="material-icons prefix">storage</i>
+              <input class="custom-class" name="courses" placeholder="(e.g.MA26100, ENGR16100, etc...)"  required>
+              <label for="courses">Courses</label>
+            </div>
+        <!-- URL Profile Pic -->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">photo</i>
+                <input type="url" class="validate" name="email" required>
+                <label for="url">Profile Picture URL</label>
+              </div>
+            </div>
+        <!--Email-->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">email</i>
+                <input type="email" type="email" class="validate" name="email" required>
+                <label for="email">Email</label>
+              </div>
+            </div>
+        <!--Password-->
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock</i>
+
+                <label for="password">Password</label>
+                <input type="password" minlength="8" required>
+
+              </div>
+            </div>
+        <!--Upload Profile Pic-->
+            <!-- <div class="file-field input-field">
+              <div class="btn">
+                <span>image</span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload a profile pic" name="profile_pic">
+              </div>
+            </div> -->
+      <!--SignUp-->
+          <div class="row">
+            <button class="btn waves-effect right" type="submit" name="signup">Sign Up<i class="material-icons right">send</i></button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--  Scripts-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/signup.js"></script>
+  </body>
+</html>

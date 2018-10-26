@@ -1,0 +1,42 @@
+
+<nav>
+  <div class="nav-wrapper show-on-large">
+    <a href="/dashboard" class="brand-logo center">College Connect</a>
+    <ul id="slide-out" class="sidenav">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="https://www.elmsln.org/sites/redesign/files/blog-post/Create%20Blog%20post/header-image/office.jpg">
+          </div>
+          <a href="#user"><img class="circle" src="{{user.profile_pic}}"></a>
+          <a href="#name"><span class="white-text name">{{user.name}} </span></a>
+          <a href="#email"><span class="white-text email">{{user.email}}</span></a>
+        </div>
+      </li>
+      <li><a href="#!"><i class="material-icons">event_note</i>My Schedule</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Let's Connect!</a></li>
+      <li><a class="waves-effect" href="/hostconnect">Host a Connect</a></li>
+      <li><a class-"waves-effect" href="/upcomingconnects">View a Connect</a></li>
+      <li><a class="waves-effect" href="/joinconnect">Join a Connect</a></li>
+    </ul>
+    <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+
+
+    <ul class="left">
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+    </ul>
+
+    <ul class="left hide-on-med-and down">
+      <li><a href='/dashboard'><i class="material-icons prefix">home</i></a></li>
+    </ul>
+
+    <ul class="right">
+      <li><a href="/viewconnects"><i class="material-icons prefix">add_alert</i></a></li>
+      <li><a href="/messages"><i class="material-icons prefix">message</i></a></li>
+      <li><a href="/friends"><i class="material-icons prefix">account_circle</i></a></li>
+      <li><a href="/settings"><i class="material-icons prefix">settings</i></a></li>
+      <li><a href="/"><i class="material-icons prefix">power_settings_new</i></a></li>
+    </ul>
+  </div>
+</nav>
